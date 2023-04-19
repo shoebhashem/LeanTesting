@@ -47,7 +47,14 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 echo 'execute tests'
-                sh "mvn package"
+                sh "mvn test"
+                }
+        }
+                stage('test') {
+            steps {
+                // Get some code from a GitHub repository
+                echo 'execute tests'
+                sh "mvn clover:aggregate clover:clover"
                 }
         }
 
