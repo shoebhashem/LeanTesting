@@ -50,10 +50,10 @@ pipeline {
                 sh "mvn test"
                 }
         }
-                stage('test') {
+        stage('report') {
             steps {
                 // Get some code from a GitHub repository
-                echo 'execute tests'
+                echo 'code coverage report'
                 sh "mvn clover:aggregate clover:clover"
                 }
         }
